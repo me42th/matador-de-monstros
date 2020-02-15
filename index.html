@@ -10,18 +10,18 @@
     <div id="app">
        <div class="panel scores">
            <div class="score">
-               <h1>Jogador</h1>
+               <h1 @click="monsterLife = 0">Jogador </h1>
                <div class="life-bar">
                    <div 
                         class="life" 
                         :class="playerColor"
                         :style="{width: playerLife+'%'}"
                     ></div>
-               </div>
-               <div>{{playerLife}} %</div>
+                </div>
+                <div>{{playerLife}} %</div>
            </div>
            <div class="score">
-                <h1>Monstro</h1>
+                <h1 @click="playerLife = 0">Monstro</h1>
                 <div class="life-bar ">
                     <div 
                         class="life" 
@@ -32,7 +32,21 @@
                 <div>{{monsterLife}} %</div>
         </div>
        </div>
-        <div class="panel result">2</div>
+        <div v-if="hasResult" class="panel result">
+            <div 
+                v-if="monsterLife == 0" 
+                class="win"
+                @click="monsterLife=100"
+                >
+                Você Ganhou :D
+            </div>
+            <div 
+                v-else 
+                class="lose"
+                @click="playerLife=100">
+                Você Perdeu :(
+            </div>
+        </div>
         <div class="panel buttons">3</div>
         <div class="panel logs">4</div>
     </div>
