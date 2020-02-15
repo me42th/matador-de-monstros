@@ -1,8 +1,9 @@
 new Vue({
     el: '#app',
     data: {
-        playerLife: 10,
-        monsterLife: 0
+        playerLife: 100,
+        monsterLife: 100, 
+        running: false
     },
     computed: {
         playerColor(){
