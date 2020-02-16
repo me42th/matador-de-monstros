@@ -3,7 +3,8 @@ new Vue({
     data: {
         playerLife: 100,
         monsterLife: 100, 
-        running: false
+        running: false,
+        logs: []
     },
     computed: {
         playerColor(){
@@ -32,8 +33,14 @@ new Vue({
                 
         },
         hurt(prop ,min, max, especial){
+            
             const plus = especial?5:0;
             const hurt = this.getRandom(min+plus, max+plus);
+            if(prop = 'playerLife'){
+                this.registerLog(`Destruidor Atacou e Tirou ${hurt}`,'monster');
+            } else {
+                this.registerLog(`Murilo Atacou e Tirou ${hurt}`,'player');
+            }
             this[prop] = Math.max(this[prop] - hurt, 0);
         },
         getRandom(min, max){
@@ -48,7 +55,12 @@ new Vue({
         },
         heal(min,max){
             const heal = this.getRandom(min,max);
+            this.registerLog(`Murilo Curou ${heal}`,'player');
             this.playerLife = Math.min(this.playerLife + heal,100);
+        },
+        registerLog(txt, cls){
+            this.logs.unshift({ txt, cls });
+            console.log(this.logs[0]);
         }
     },
     watch: {
