@@ -22,6 +22,7 @@ new Vue({
             this.running = true;
             this.playerLife = 100;
             this.monsterLife = 100;
+            this.logs = [];
         },
         attack(especial){
             this.hurt('monsterLife',5,10,especial);
@@ -29,17 +30,16 @@ new Vue({
                 setTimeout(
                     () => this.hurt('playerLife',10,13,false)
                ,200);
-            }
-                
+            }                
         },
         hurt(prop ,min, max, especial){
             
             const plus = especial?5:0;
             const hurt = this.getRandom(min+plus, max+plus);
-            if(prop = 'playerLife'){
-                this.registerLog(`Destruidor Atacou e Tirou ${hurt}`,'monster');
+            if(prop == 'playerLife'){
+                this.registerLog(`Destruidor Atacou e Tirou ${hurt} de Murilo`,'monster');
             } else {
-                this.registerLog(`Murilo Atacou e Tirou ${hurt}`,'player');
+                this.registerLog(`Murilo Atacou e Tirou ${hurt} do Destruidor`,'player');
             }
             this[prop] = Math.max(this[prop] - hurt, 0);
         },
