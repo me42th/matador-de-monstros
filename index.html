@@ -10,7 +10,7 @@
     <div id="app">
        <div class="panel scores">
            <div class="score">
-               <h1 @click="monsterLife = 0">Murilo Gamer</h1>
+               <h1 >Murilo Gamer</h1>
                <div class="life-bar">
                    <div 
                         class="life" 
@@ -21,7 +21,7 @@
                 <div>{{playerLife}} %</div>
            </div>
            <div class="score">
-                <h1 @click="playerLife = 0">Destruidor</h1>
+                <h1>Destruidor</h1>
                 <div class="life-bar ">
                     <div 
                         class="life" 
@@ -36,14 +36,13 @@
             <div 
                 v-if="monsterLife == 0" 
                 class="win"
-                @click="monsterLife=100"
                 >
                 O Guri Ganhou :D
             </div>
             <div 
                 v-else 
                 class="lose"
-                @click="playerLife=100">
+               >
                 O Guri Perdeu :(
             </div>
         </div>
@@ -51,7 +50,7 @@
             <template v-if="running">
                 <button class="btn attack" @click="attack(false)">Ataque</button>
                 <button class="btn especial-attack" @click="attack(true)">Ataque Especial</button>
-                <button class="btn heal" @click="alerta('Bobão')">Curar</button>
+                <button class="btn heal" @click="healAndHurt()">Curar</button>
                 <button class="btn give-up" @click="running = false">Desistir</button>
             </template>
             <template v-else>
