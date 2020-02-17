@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>O Guri Matador</title>
+    <title>O Matador de Tickets</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600&display=swap" rel="stylesheet">
     <script src="http://unpkg.com/vue"></script>
@@ -10,7 +10,7 @@
     <div id="app">
        <div class="panel scores">
            <div class="score">
-               <h1 >Murilo Gamer</h1>
+               <h1 >Desenvolvedor</h1>
                <div class="life-bar">
                    <div 
                         class="life" 
@@ -21,36 +21,36 @@
                 <div>{{playerLife}} %</div>
            </div>
            <div class="score">
-                <h1>Destruidor</h1>
+                <h1>Ticket {{ticketNumber}}</h1>
                 <div class="life-bar ">
                     <div 
                         class="life" 
-                        :class="monsterColor"
-                        :style="{width: monsterLife+'%'}"
+                        :class="ticketColor"
+                        :style="{width: ticketLife+'%'}"
                     ></div>
                 </div>
-                <div>{{monsterLife}} %</div>
+                <div>{{ticketLife}} %</div>
         </div>
        </div>
         <div v-if="hasResult" class="panel result">
             <div 
-                v-if="monsterLife == 0" 
+                v-if="ticketLife == 0" 
                 class="win"
                 >
-                O Guri Ganhou :D
+                Ticket Homologado :D
             </div>
             <div 
                 v-else 
                 class="lose"
                >
-                O Guri Perdeu :(
+                O Desenvolvedor Pediu Demissão :(
             </div>
         </div>
         <div class="panel buttons">
             <template v-if="running">
-                <button class="btn attack" @click="attack(false)">Ataque</button>
-                <button class="btn especial-attack" @click="attack(true)">Ataque Especial</button>
-                <button class="btn heal" @click="healAndHurt()">Curar</button>
+                <button class="btn attack" @click="attack(false)">Codificar</button>
+                <button class="btn especial-attack" @click="attack(true)">Codar com Redbull</button>
+                <button class="btn heal" @click="healAndHurt()" >Relaxar um Pouco</button>
                 <button class="btn give-up" @click="running = false">Desistir</button>
             </template>
             <template v-else>
