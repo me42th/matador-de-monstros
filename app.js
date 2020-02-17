@@ -5,9 +5,14 @@ new Vue({
         ticketLife: 100, 
         running: false,
         logs: [],
-        acoes: [ 'O Cliente Acordou de Mau Humor e Você Se Fuuu','Não Teve Café Hoje e Você Se Fuuu'],
+        ataques: [ 
+            'Deu Conflito TENSO no GIT, ',
+            'Inundação em Toda a Cidade, ',
+            'Hora Extra a Vários Dias, ',
+            'Pressão PESADA do Cliente, ',
+            'Problemas Críticos nos Ambientes, '],
         ticketNumber: '???',
-        relaxar: ['Tomar Uma Cerveja','Ir na Praia','Fazer Sexo','Comer Besteira','Tocar Guitarra','Ir na Casa de Massagem'],
+        relaxar: ['Tomou Uma Cerveja','Foi na Praia','Fez Sexo','Comeu Besteira','Tocou Guitarra','Foi na Casa de Massagem'],
         rlxAtual: 'Relaxar Um Pouco'
     },
     computed: {
@@ -42,7 +47,9 @@ new Vue({
             const plus = especial?5:0;
             const hurt = this.getRandom(min+plus, max+plus);
             if(prop == 'playerLife'){
-                this.registerLog(`O Ticket não Foi Homologado, o Dev Perde ${hurt} de Vida`,'ticket');
+                const variavel =  Math.round(Math.random()*(this.ataques.length-1));
+                const msg = this.ataques[variavel];
+                this.registerLog(msg+` o Dev Perde ${hurt} de Vida`,'ticket');
             } else {
                 this.registerLog(`O Dev Codificou e resolveu ${hurt}% do Ticket`,'player');
             }
@@ -53,7 +60,6 @@ new Vue({
             return Math.round(value);
         },
         healAndHurt(){
-            this.rlxAtual = this.relaxar[(Math.round(Math.random() * (this.relaxar.lenght -1 )))];
             this.heal(20,25);
             setTimeout(
                 () => this.hurt('playerLife',10,13,false)
@@ -61,7 +67,8 @@ new Vue({
         },
         heal(min,max){
             const heal = this.getRandom(min,max);
-            this.registerLog(`O Dev Relaxou um Pouco e Curou ${heal}% de Vida`,'player');
+            this.rlxAtual = this.relaxar[(Math.round(Math.random() * (this.relaxar.length -1 )))];
+            this.registerLog(this.rlxAtual+`, Relaxou um Pouco e Curou ${heal}% de Vida`,'player');
             this.playerLife = Math.min(this.playerLife + heal,100);
         },
         registerLog(txt, cls){
