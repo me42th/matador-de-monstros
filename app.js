@@ -12,7 +12,16 @@ new Vue({
             'Pressão PESADA do Cliente, ',
             'Problemas Críticos nos Ambientes, '],
         ticketNumber: '???',
-        relaxar: ['Tomou Uma Cerveja','Foi na Praia','Fez Sexo','Comeu Besteira','Tocou Guitarra','Foi na Casa de Massagem'],
+        relaxar: [
+            'Tomou Uma Cerveja',
+            'Foi na Praia',
+            'Fez Sexo',
+            'Comeu Besteira',
+            'Tocou Guitarra',
+            'Foi na Casa de Massagem',
+            'Comprou Geladinho',
+            'Foi Jogar Boliche'
+        ],
         rlxAtual: 'Relaxar Um Pouco'
     },
     computed: {
