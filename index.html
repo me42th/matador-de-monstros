@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>O Matador de Tickets</title>
+    <meta property="og:title" content="Matador de Tickets">
+    <meta property="og:description" content="Jogo simples com as delicias e as dores de ser dev">1904 x 927
+    <meta property="og:image" content="http://fadi.ga/capa.PNG">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1904"> /** PIXELS **/
+    <meta property="og:image:height" content="927"> /** PIXELS **/
+    <title>O Matador de Issues</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600&display=swap" rel="stylesheet">
     <script src="http://unpkg.com/vue"></script>
@@ -21,7 +27,7 @@
                 <div>{{playerLife}} %</div>
            </div>
            <div class="score">
-                <h1>Ticket {{ticketNumber}}</h1>
+                <h1>Issue {{ticketNumber}}</h1>
                 <div class="life-bar ">
                     <div 
                         class="life" 
@@ -37,7 +43,7 @@
                 v-if="ticketLife == 0" 
                 class="win"
                 >
-                Ticket Homologado :D
+                Issue Resolvida :D
             </div>
             <div 
                 v-else 

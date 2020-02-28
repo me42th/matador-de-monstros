@@ -15,10 +15,10 @@ new Vue({
         relaxar: [
             'Tomou Uma Cerveja',
             'Foi na Praia',
-            'Fez Sexo',
+            'Visitou a Namorada',
             'Comeu Besteira',
             'Tocou Guitarra',
-            'Foi na Casa de Massagem',
+            'Foi no Barzinho',
             'Comprou Geladinho',
             'Foi Jogar Boliche'
         ],
